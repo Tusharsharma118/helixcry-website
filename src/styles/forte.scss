@@ -1,0 +1,50 @@
+.forte-container{
+    //background-image: url(../static/images/background.jpg);
+    background-image: linear-gradient(to bottom right, #0E0B16,#0E0B16, rgba(62, 21, 209, 0.404));
+    height: 100%;
+    padding: 0 1rem;
+    z-index: 13;
+    margin-top: 0;
+    color: #E7DFDD;
+    .forte-head{
+        font-size: 25px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 0 auto;
+        width: 50%;
+    }
+    .forte-content{
+       // opacity:70%;
+        color: #E7DFDD;
+        min-height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin: 20px;
+        .forte-item{
+            display: flex;
+            border-radius: 0px 15px 0px 15px;
+            box-shadow: 5px 5px 5px rgba(146,61,184,0.5);
+            background-image: linear-gradient(to top left,rgba(36,17,86,0.5), rgba(62,21,209,0.5),rgba(146,61,184,0.5));
+            flex-basis: calc(50% - 50px);  
+            justify-content: center;
+            flex-direction: column;
+            margin: 20px;
+            h3,p{
+                margin: 20px;
+                display: flex;
+                justify-content: left;
+            }
+        }
+    }
+}
+.forte-heading{
+    color:whitesmoke;
+    font-family: '8-bit-arcade' !important;
+    font-size: 20px  !important;
+}
+.forte-text{
+    color: whitesmoke;
+    font-size: 15px  !important;
+}
