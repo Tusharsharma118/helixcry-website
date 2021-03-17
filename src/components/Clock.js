@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import '../styles/Clock.css'
 
 function Clock() {
   const [clockState, setClockState] = useState();
@@ -10,7 +11,11 @@ function Clock() {
     }, 1000);
   }, []);
 
-  return <div style={{ fontSize: "95px", margin: "150px",color : "whitesmoke",textAlign : "center" }}>{clockState}</div>;
+  return( 
+      <div className="clock-content">
+        {clockState}
+      </div>
+  )
 }
 
 export default Clock;

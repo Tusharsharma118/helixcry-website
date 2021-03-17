@@ -1,0 +1,78 @@
+/* font-style */
+@font-face {
+    font-family: 'Speedy Retro';
+    src: url('../fonts/Speedy\ Retro.otf');
+}
+
+@font-face {
+    font-family: '8-bit-heading';
+    src: url('../fonts/8-bit-heading.ttf');
+}
+
+/* variables */
+:root{
+    --first-shade: #0E0B16;
+    --first-shade-light:#181327bb ;
+    --second-shade: #A239CA;
+    --third-shade: #4717F6;
+    --text-color: blanchedalmond;
+    --box-shade: #E7DFDD;
+}
+
+.about-container{
+    background: (var(--first-shade-light));
+}
+
+.about-head{
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    font-family: '8-bit-heading';
+}
+
+.about-item{
+    background-image: linear-gradient(to top left, var(--first-shade), var(--first-shade) , var(--third-shade));
+    box-shadow: 0px 5px 10px var(--third-shade);
+    margin: 20px;
+    padding: 10px;
+    text-align: justify;
+    border-radius: 5px 5px 5px 5px;
+    color: var(--text-color);
+}
+
+.about-item h3{
+    font-family: 'Speedy Retro';
+    text-align: center;
+    
+}
+
+.about-profile-item{
+    background-image: linear-gradient(to top left, var(--first-shade), var(--first-shade) , var(--third-shade));
+    box-shadow: 0px 5px 10px var(--third-shade);
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.about-profile-item h3{
+    font-family: 'Speedy Retro';
+    color: var(--text-color);
+}
+
+.about-profile-item p{
+    opacity: 0;
+}
+
+.about-profile-item:hover{
+    opacity: 0.6;
+}
+
+.about-profile-item:hover p{
+    opacity: 1;
+}
+
+.about-profile-item p a{
+    margin: 20px;
+}
+

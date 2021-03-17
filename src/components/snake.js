@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useInterval } from "./interval";
-import "../styles/snake.scss"
-import img from "../static/images/wasd.png";
+import {Button,ButtonGroup} from 'react-bootstrap'
+import '../styles/Snake.css'
   
 const CANVAS_SIZE = [700, 300];
 const SNAKE_START = [
@@ -12,10 +12,14 @@ const APPLE_START = [8, 3];
 const SCALE = 10;
 const SPEED = 120;
 const DIRECTIONS = {
-  87: [0, -1], // up
-  83: [0, 1], // down
-  65: [-1, 0], // left
-  68: [1, 0] // right
+  "UP": [0, -1], //up using button
+  87: [0,-1], // up using W
+  "DOWN": [0, 1], //down using button
+  83: [0,1], // down using S
+  "LEFT": [-1, 0], //left using button
+  65: [-1,0], // left using A
+  "RIGHT": [1, 0], //right using button
+  68: [1,0] // right using D
 };
 
 const Snake = () => {
@@ -36,21 +40,43 @@ const Snake = () => {
     setGameOver(true);
   };
 
-  const moveSnake = ({ keyCode }) => {
-      console.log("prevInput =", prevInput)
-    if (keyCode == 87 && prevInput !== 'D' ){
+  const moveSnake = (keyCode) => {
+    console.log(keyCode)
+    console.log("prevInput =", prevInput)
+    if (keyCode === 'UP' && prevInput !== 'D' ){
         setDir(DIRECTIONS[keyCode]);
         setPrevInput('U');
         }
-    else if (keyCode == 83 && prevInput !== 'U' ){
+    else if (keyCode === 'DOWN' && prevInput !== 'U' ){
             setDir(DIRECTIONS[keyCode]);
             setPrevInput('D');
     }
-    else if (keyCode == 65 && prevInput !== 'R' ){
+    else if (keyCode === 'LEFT' && prevInput !== 'R' ){
             setDir(DIRECTIONS[keyCode]);
             setPrevInput('L');
     }
-    else if (keyCode == 68 && prevInput !== 'L' ){
+    else if (keyCode === 'RIGHT' && prevInput !== 'L' ){
+            setDir(DIRECTIONS[keyCode]);
+            setPrevInput('R');
+    }
+  }
+
+  const moveKeySnake = ({keyCode}) => {
+    console.log({keyCode})
+    console.log("prevInput =", prevInput)
+    if (keyCode === 87 && prevInput !== 'D' ){
+        setDir(DIRECTIONS[keyCode]);
+        setPrevInput('U');
+        }
+    else if (keyCode === 83 && prevInput !== 'U' ){
+            setDir(DIRECTIONS[keyCode]);
+            setPrevInput('D');
+    }
+    else if (keyCode === 65 && prevInput !== 'R' ){
+            setDir(DIRECTIONS[keyCode]);
+            setPrevInput('L');
+    }
+    else if (keyCode === 68 && prevInput !== 'L' ){
             setDir(DIRECTIONS[keyCode]);
             setPrevInput('R');
     }
@@ -83,7 +109,7 @@ const Snake = () => {
       }
       setApple(newApple);
       setScore(score+1);
-      if(score == 5){
+      if(score === 5){
           setSpeed(speed - 50);
       }
       return true;
@@ -120,11 +146,10 @@ const Snake = () => {
   }, [snake, apple, gameOver]);
 
   return (
-    <>
-    <img src={img} class="controls"></img>  
-    <div role="button" class="game-body" tabIndex="0" onKeyDown={e => moveSnake(e)}>
-        <div class="heading-item">
-            <h2>Snek - Back to the Past!</h2>
+    <> 
+    <div role="button" className="game-body" tabIndex="0" onKeyDown={e => moveKeySnake(e)}>
+        <div className="heading-item">
+            <h2>Snek Back to the Past!</h2>
         </div>
       <canvas
         style={{ border: "1px solid white" }}
@@ -132,10 +157,17 @@ const Snake = () => {
         width={`${CANVAS_SIZE[0]}px`}
         height={`${CANVAS_SIZE[1]}px`}
       />
-      {gameOver && <span class="score-not-btn" >GAME OVER!  SCORE : {score} </span>}
-      <br/><br/><span onClick={startGame} class="start-btn">START</span>
-    </div>
-    
+      {gameOver && <span className="score-not-btn" >GAME OVER!  SCORE : {score} </span>}
+      <div className="button-group">
+        <Button onClick={startGame} variant="dark" className="start-btn">START</Button>
+        <Button onClick={() => moveSnake("UP")} variant="dark" className="arrow-up-btn">W</Button>
+        <ButtonGroup className="bottom-button">
+          <Button variant="dark" onClick={() => moveSnake("LEFT")} className="wasd">A</Button>
+          <Button variant="dark" onClick={() => moveSnake("DOWN")} className="wasd">S </Button>
+          <Button variant="dark" onClick={() => moveSnake("RIGHT")}className="wasd">D</Button>
+        </ButtonGroup>
+        </div>
+      </div>    
     </>
   );
 };

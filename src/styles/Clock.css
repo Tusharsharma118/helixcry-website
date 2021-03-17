@@ -1,0 +1,28 @@
+/* font-style */
+@font-face {
+    font-family: 'Speedy Retro';
+    src: url('../fonts/Speedy\ Retro.otf');
+}
+
+@font-face {
+    font-family: '8-bit-heading';
+    src: url('../fonts/8-bit-heading.ttf');
+}
+
+/* variables */
+:root{
+    --first-shade: rgba(18, 17, 19, 0.5);
+    --second-shade: rgba(62,21,209,0.5);
+    --third-shade: rgba(198, 76, 223, 0.5);
+    --text-color: blanchedalmond;
+    --border-shade: #a88437;
+    --icon-shade: black;
+}
+
+.clock-content{
+    color: var(--text-color);
+    font-family: '8-bit-heading';
+    font-size: 50px;
+    margin: 50px;
+    text-align: center;
+}

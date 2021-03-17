@@ -1,0 +1,60 @@
+/* font-style */
+@font-face {
+    font-family: 'Speedy Retro';
+    src: url('../fonts/Speedy\ Retro.otf');
+}
+
+@font-face {
+    font-family: '8-bit-heading';
+    src: url('../fonts/8-bit-heading.ttf');
+}
+
+/* variables */
+:root{
+    --first-shade: #0E0B16;
+    --first-shade-light:#181327bb ;
+    --second-shade: #A239CA;
+    --third-shade: #4717F6;
+    --text-color: blanchedalmond;
+    --box-shade: #E7DFDD;
+}
+
+.contact-container{
+    background: var(--first-shade);
+}
+
+.contact-head{
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    font-family: '8-bit-heading';
+}
+
+.contact-content{
+    background-image: linear-gradient(to top right, var(--first-shade),var(--first-shade-light),var(--box-shade));
+    box-shadow: 0px 5px 10px var(--text-color);
+    width: 50%;
+    margin: auto;
+    padding: 50px;
+    font-family: '8-bit-heading';
+}
+
+.contact-content p{
+    color: var(--text-color);
+}
+
+.submit-button{
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 35%;
+    width: 30%;
+    background-color: var(--text-color);
+    color: var(--icon-shade);
+}
+
+input, textarea{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color:var(--first-shade) !important;
+    color: var(--text-color) !important;
+}
+

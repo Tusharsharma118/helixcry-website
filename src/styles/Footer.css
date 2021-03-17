@@ -1,0 +1,18 @@
+:root{
+    --first-shade: #0E0B16;
+    --first-shade-light:#181327bb ;
+    --second-shade: #A239CA;
+    --third-shade: #4717F6;
+    --text-color: blanchedalmond;
+    --box-shade: #E7DFDD;
+}
+
+.footer-container{
+    color: var(--text-color);
+    margin-top: 40px;
+}
+
+.footer-content{
+    font-size: 20px;
+    text-align: center;
+}

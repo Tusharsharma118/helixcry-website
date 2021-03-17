@@ -1,17 +1,18 @@
-import React, { useEffect } from "react"
-import scrollTo from "gatsby-plugin-smoothscroll"
+import {React,useEffect} from "react"
 import menuData from "../components/data/menuData"
-import "../styles/navbar.scss"
+import {Navbar,Nav} from 'react-bootstrap'
+import {Link} from 'react-scroll'
 import gsap from 'gsap'
+import '../styles/Navbar.css'
 
-function Navbar() {
+function Navbars() {
 
   useEffect(() => {
     const navTimeline = gsap.timeline();
 
     navTimeline.to('.nav-container', {
       duration: 1.5,
-      height: 60,
+      height: 50,
       ease: 'expo.inOut',
     })
 
@@ -26,27 +27,21 @@ function Navbar() {
   },[])
 
   return(
-    <nav className="nav-container">
-      <button className="nav-btn" href="/#" title="Menu">
-          HelixCry
-      </button>
-      <div className="nav-menu">
-        {menuData.map((value, index) => {
-          return (
-            <li key={index}>
-              <button onClick={() =>
-                {
-                  scrollTo('#' + value.path)
-                }
-              }>
-                {value.label}
-              </button>
-            </li>
+    <Navbar variant="dark" className="nav-container">
+      <Navbar.Brand className="nav-btn">
+         HelixCry
+      </Navbar.Brand>
+      <Nav className="nav-menu">
+        { menuData.map((value, index) => (
+            <Nav.Item key={index}>
+              <Nav.Link>
+                <Link to={value.path} spy={true} smooth={true}>{value.label}</Link>
+              </Nav.Link>
+            </Nav.Item>
           )
-        })}
-      </div>
-    </nav>
+        )}
+      </Nav>
+    </Navbar>
   )
 }
-
-export default Navbar
+export default Navbars

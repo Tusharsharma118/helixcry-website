@@ -1,11 +1,9 @@
 import React,{useEffect, useRef} from 'react'
 import forteData from '../components/data/forteData'
-import "../styles/forte.scss"
+import {Card,Row,Col} from 'react-bootstrap'
+import '../styles/Forte.css'
 import gsap from "gsap"
 import {ScrollTrigger} from "gsap/ScrollTrigger"
-import '../fonts/8-bit-heading.ttf'
-import '../fonts/8-bit-slim.ttf'
-import '../fonts/8-bit-arcade.ttf'
 
 export default function Forte() {
 
@@ -13,19 +11,29 @@ export default function Forte() {
     gsap.registerPlugin(ScrollTrigger)
 
     useEffect(() => {
-        gsap.fromTo([".forte-head",".forte-item"],{
-            autoAlpha: 0,
-            x: "-10%"
+        gsap.fromTo(".forte-head",{
+            autoAlpha: 0
         }, {
             duration: 1,
             autoAlpha: 1,
-            ease: "power3.out",
-            x: "0%",
+            ease: "none",
             scrollTrigger: {
                 trigger: item.current,
-                start: '-1000px',
-                toggleActions: 'play none none reverse',
-                markers: true
+                start: '-900vh',
+                toggleActions: 'play none none reverse'
+            }
+        })
+
+        gsap.fromTo(".forte-item",{
+            autoAlpha: 0
+        }, {
+            duration: 1,
+            autoAlpha: 1,
+            ease: "none",
+            scrollTrigger: {
+                trigger: item.current,
+                start: '-800vh',
+                toggleActions: 'play none none reverse'
             }
         })
     })
@@ -34,19 +42,23 @@ export default function Forte() {
     <>
         <section id="forte" className="forte-container" ref={item}>
             <div className="forte-head">
-                <h2>Have a Look at our Skillsets</h2>
-                <p>Baka~~    (U w U) </p>
+                <h2>Our Skillset</h2>
             </div>
-            <div className="forte-content">
+            <Row className="forte-content">
                 {
-                    forteData.map((item) => (
-                        <div className="forte-item" key={item.title}>
-                            <h3 class="forte-heading " >{item.title}</h3>
-                            <p class="forte-text "  >{item.description}</p>
-                        </div>
-                    ))
-                }
-            </div>
+                forteData.map((item) => (
+                    <Col sm={6} className="forte-item-content">
+                        <Card className="forte-item" key={item.title} bg="dark">
+                            <Card.Body as="div">
+                                <Card.Title as="h3">{item.title}</Card.Title>
+                                <Card.Text as="p">
+                                    {item.description}
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
         </section>
     </>
     )

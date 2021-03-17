@@ -18,7 +18,7 @@ const forteData = [
                      +'Well all of those "cool" items were created in a magic tool by smashing random shaped blocks together and hoping something good comes out at the end. '
     },
     {
-        title: "Games & Game Engines",
+        title: "Games And Game Engines",
         description: "All that fancy new tech aside, we are gamers at heart and have played games in a plethora of genres from old skool titles, to the current open world marvels, to some eccentric visual novels too. "
                      +"All these titles require a certain degree of proficieny of game engines to bring all these amazing ideas together. "
                      +"That's where the game engines come in. We've tried our hand at creating a few 2D and 3D games and continue to do so at Helixcry. "

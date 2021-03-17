@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
-import "../styles/contact.scss"
+import {Form,Row,Col,Button} from 'react-bootstrap'
+import '../styles/Contact.css'
 
 function Contact() {
 
@@ -10,39 +11,43 @@ function Contact() {
     const submit = (e) => {
         e.preventDefault();
         alert(`
-            Name: ${name}
-            Email: ${email}
-            Message: ${message}
+            Thank you for contacting us! Here take a cookie!!
         `)
-        setName('')
-        setEmail('')
-        setMessage('')
     }
 
-    console.log(name+" "+email+" "+message);
     return (
         <>
         <section id="contact" className="contact-container">
-            <h1 className="contact-head">Contact</h1>
-            <form onSubmit={submit} className="contact-content">
-                <ul>
-                    <li>
-                        <label htmlFor="Name">Full Name</label>
-                        <input placeholder="Enter Your Name" value={name} onChange={(e)=>setName(e.target.value)}/>
-                    </li>
-                    <li>
-                        <label htmlFor="Email">Email Id</label>
-                        <input placeholder="Enter Your Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                    </li>
-                    <li>
-                        <label htmlFor="Message">Message</label>
-                        <textarea placeholder="Message" value={message} onChange={(e)=>setMessage(e.target.value)}/>
-                    </li>
-                    <li>
-                     <input type="submit" value="submit" className="contact-button"/>
-                    </li>
-                </ul>               
-            </form>
+            <div className="contact-head">
+                <h2>CONTACT US</h2>
+            </div>
+            <Form onSubmit={submit} className="contact-content">
+                <Form.Group as={Row} className="contact-item">
+                    <Form.Label as="p">
+                        Full Name
+                    </Form.Label>
+                    <Form.Control as="input" placeholder="Enter Your Name" value={name} onChange={(e)=>setName(e.target.value)}/>
+                </Form.Group>
+                <Form.Group as={Row} className="contact-item">
+                    <Form.Label as="p">
+                        Email Address
+                    </Form.Label>
+                    <Form.Control as="input" placeholder="Enter Your Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                </Form.Group>
+                <Form.Group as={Row} className="contact-item">
+                    <Form.Label as="p">
+                        Message
+                    </Form.Label>
+                    <Form.Control as="textarea" placeholder="Message" value={message} onChange={(e)=>setMessage(e.target.value)}/>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <Col>
+                    <a href="mailto:helixcry@gmail.com">
+                        <Button type="submit" variant="dark" className="submit-button">Submit</Button>
+                    </a>
+                    </Col>
+                </Form.Group>
+            </Form>
         </section>
         </>
     )

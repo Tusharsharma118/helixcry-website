@@ -1,70 +1,75 @@
-import React from 'react'
-import exploreData from './data/exploreData'
-import "../styles/explore.scss"
-import Clock from './clock'
-import image from "../static/images/Logrim.png"
-import Snake from "./snake"
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-
-
-const useStyles = makeStyles({
-    root: {
-      maxWidth: 245,
-    },
-    media: {
-      height: 245,
-    },
-  });
-
-
-
+import React, { useRef, useEffect } from 'react'
+import ExploreData from './data/exploreData'
+import GrimCry from '../static/images/GrimCry.jpg'
+import {Row,Card,Col} from 'react-bootstrap'
+import gsap from "gsap"
+import {ScrollTrigger} from "gsap/ScrollTrigger"
+import '../styles/Explore.css'
 
 export default function Explore() {
-    const classes = useStyles();
+
+  const explore = useRef(null)
+    gsap.registerPlugin(ScrollTrigger)
+
+    useEffect(() => {
+      gsap.fromTo(".explore-head",{
+          autoAlpha: 0
+        }, {
+          duration: 1,
+          autoAlpha: 1,
+          ease: "none",
+          scrollTrigger: {
+              trigger: explore.current,
+              start: '-900vh',
+              toggleActions: 'play none none reverse'
+          }
+        }
+      )
+
+      gsap.fromTo(".explore-content",{
+        autoAlpha: 0
+      }, {
+        duration: 1,
+        autoAlpha: 1,
+        ease: "none",
+        scrollTrigger: {
+            trigger: explore.current,
+            start: '-800vh',
+            toggleActions: 'play none none reverse'
+        }
+      }
+    )
+    })
 
     return (
-
- <> 
- <Clock></Clock> 
-        <section id="explore" className="explore-container">
-            <h1 className="explore-head">Our Work</h1>
-            <div>
-           
-            {
-                
-
-                exploreData.map((item) => ( 
-                   <a class="explore-anchor" href="https://play.google.com/store/apps/details?id=com.helixcry.grimcry " target="_blank" rel="noreferrer"> <div className="explore-item" key={item.title}>
-                      <Card className={classes.root}>
-    <CardActionArea>
-      <CardMedia
-        className={classes.media}
-        image={image}
-        item={item.description} 
-        title="GrimCry : VR Game"
-      />
-      
-    </CardActionArea>
-    
-  </Card>
-                        
-                                     
+      <>
+        <section id="explore" className="explore-container" ref={explore}>
+          <div className="explore-head">
+                <h2>Our Work</h2>
+          </div>
+          <div class="container">
+          <div class="row explore-content">
+              {
+                ExploreData.map((item) => (
+                  <>
+                  <div class = "col-md-4 ">
+                    <div className="explore-item" bg="dark">
+                      <a href={item.link} class="nostyle" target = "_blank">
+                        <img src={GrimCry} className="img-fluid" as="img"/>
+                      </a>
+                    </div>                    
+                  </div>
+                    <div class = "col-md-8 explore-item explore-item-text">
+                    <a href={item.link} class="nostyle" target = "_blank"> <p>{item.description}</p> </a>
                     </div>
-                    </a>
-                ))
-            }
-            <Snake></Snake>
-            </div>
+               </>
 
-           
+                ))
+              }
+          </div>
+          </div>
+          
         </section>
-    </>
+      </>
     )
 }

@@ -1,0 +1,58 @@
+/* font-style */
+@font-face {
+    font-family: 'Speedy Retro';
+    src: url('../fonts/Speedy\ Retro.otf');
+}
+
+@font-face {
+    font-family: '8-bit-heading';
+    src: url('../fonts/8-bit-heading.ttf');
+}
+
+/* variables */
+:root{
+    --first-shade: #0E0B16;
+    --second-shade: #A239CA;
+    --third-shade: #4717F6;
+    --text-color: blanchedalmond;
+    --box-shade: #E7DFDD;
+    --icon-shade: black;
+}
+
+.forte-container{
+    background: linear-gradient(to right top, var(--first-shade), var(--first-shade));
+}
+
+.forte-head{
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    font-family: '8-bit-heading';
+}
+
+.forte-content{
+    width: 100%;
+}
+
+.forte-item-content{
+    margin-bottom: 30px;
+}
+
+.forte-item{
+    background-image: linear-gradient(to bottom right, var(--first-shade), var(--first-shade),var(--second-shade));
+    border-radius: 20px 0 20px 0;
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+    box-shadow: 5px 5px 10px var(--box-shade);
+}
+
+.forte-item h3{
+    color: var(--text-color);
+    font-family: 'Speedy Retro';
+}
+
+.forte-item p{
+    color: var(--text-color);
+    text-align: justify;
+}

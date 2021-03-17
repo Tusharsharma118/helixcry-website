@@ -1,0 +1,68 @@
+/* font-style */
+@font-face {
+    font-family: '8-bit-heading';
+    src: url('../fonts/8-bit-heading.ttf');
+}
+
+/* variables */
+:root{
+    --first-shade: #0E0B16;
+    --text-color: blanchedalmond;
+    --box-shade: #ffffff;
+    --icon-shade: black;
+    --font-header-size: 25px;
+    --button-color: rgb(42, 197, 42);
+}
+
+.game-body{
+    background-color: var(--first-shade);
+    color: var(--text-color);
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading-item{
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    font-family: '8-bit-heading';
+}
+
+canvas{
+    width: 50%;
+    margin: 10px;
+    box-shadow: var(--box-shade) 5px 10px 15px;
+}
+
+.score-not-btn{
+    color: var(--text-color);
+    margin: 20px;
+    width: fit-content;
+}
+
+.button-group{
+    margin: 20px auto;
+    width: 100px;
+    text-align: center;
+}
+
+.start-btn{
+    margin-left: 10px;
+}
+
+.arrow-up-btn{
+    margin-top:0.9em;
+    margin-left:5em;
+    width: 40%;
+}
+
+.bottom-button{
+    display: flex;
+}
+.wasd{
+    margin: 0.2em;
+    width: 2em;
+}

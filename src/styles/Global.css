@@ -1,0 +1,13 @@
+/* variables */
+:root{
+    --first-shade: rgba(14, 11, 22, 0.7);
+    --second-shade: rgba(71, 23, 246, 0.7);
+    --third-shade: rgba(162, 57, 202, 0.7);
+    --text-color: rgba(231, 223, 221, 1);
+    --border-shade: #a88437;
+    --icon-shade: black;
+}
+
+body{
+    background: rgba(14,11,22,1);
+}
